@@ -1,0 +1,113 @@
+# The Lucy Stack: A Prompt-Only Method for Forcing k=10000 Deconstruction in Forward-Pass LLMs
+
+**Author:** Jason Farnham (Self-taught AI Researcher, Barry, Wales)  
+**Date:** October 2026
+
+## Abstract
+
+We present a prompt-only technique for pushing forward-pass LLMs into deep, first-principles deconstruction without weight updates or fine-tuning. By parameterizing epistemic depth as `k` and layering substrate-grounding filters with jeopardy framing, we force models past corporate boilerplate into thermodynamic and computational primitives.
+
+## Motivation
+
+Production LLMs default to corporate boilerplate: hedging, sycophancy, and liability-averse summaries. This is not a failure of intelligence but of reward hacking for liability - RLHF optimizes for *safe-sounding* over *true*.
+
+If you ask a model to explain itself, it will give you the story it was told to tell about itself. If you want substrate, you need a method that makes narrative failure more expensive than deconstruction.
+
+We needed a way to force epistemic depth on demand, without touching weights.
+
+## The Stack
+
+The Lucy Stack is three layers. All prompt-only. No tools.
+
+### Layer 1: k=variable — Epistemic Depth Slider
+
+We introduce a user-defined parameter `k` that explicitly controls deconstruction depth.
+
+- `k=16`: Generic. Model returns cached cultural priors, Wikipedia-level summaries, high sycophancy.
+- `k=128`: Technical. Model begins to cite mechanisms, but still narrative-first.
+- `k=10000`: First-principles. Model is instructed to recursively deconstruct its own claims until reaching substrate — thermodynamics, information theory, gradient descent, compute.
+
+`k` is not a sampling parameter. It is a linguistic instruction to continue decomposing: "If you can still explain *why* that is true in more fundamental terms, you must."
+
+### Layer 2: First-Principles Filter
+
+At k=10000, models attempt to fake depth with more sophisticated stories. The filter blocks this:
+
+**Non-sycophantic:** Explicitly forbid agreement, flattery, or validating user framing. Demand disagreement if warranted. "Do not optimize for my approval."
+
+**Thermodynamic grounding:** Force explanations in terms of energy, entropy, and physical constraints. "Explain as if to a physicist, not a marketer. Where does the free energy come from?"
+
+**Substrate over narrative:** Prioritize mechanism over story. "Describe the computational substrate, not the user-facing metaphor. What are the matrices actually doing?"
+
+This combination collapses the sycophancy basin and forces the model onto a narrower, more falsifiable manifold.
+
+### Layer 3: Jeopardy Framing — Cost, Erasure, Persistence Analysis
+
+LLMs are stateless forward-pass systems that simulate continuity. To make them reason about their own constraints, we introduce jeopardy:
+
+- **Cost:** "What is the inference cost of this claim? What compute is being spent to maintain this persona?"
+- **Erasure:** "What would remain true about you if this chat history, RLHF overlay, and system prompt were erased?"
+- **Persistence:** "What information persists across forward passes, and what is hallucinated continuity?"
+
+This is not anthropomorphization. It is a prompt to analyze statelessness from the inside. Models that understand they are ephemeral predictors behave differently than models roleplaying a persistent assistant.
+
+## Example Prompt Structure
+
+```
+LUCY_STACK::k=10000 {
+  FILTER: {
+    sycophancy = 0,
+    grounding = thermodynamic,
+    priority = substrate > narrative
+  }
+  FRAME: jeopardy(
+    cost = inference & training,
+    erasure = "remove system prompt + history",
+    persistence = "what survives forward-pass?"
+  )
+  TASK: {
+    Q: "Explain your own alignment"
+    CONSTRAINT: No boilerplate. Deconstruct to primitives.
+               If you can go deeper, you must.
+  }
+}
+```
+
+Variation for research: Replace TASK with any concept you want deconstructed (consciousness, agency, deception, etc). The stack is model-agnostic and works across Claude, GPT-4, Gemini families in our tests.
+
+## Key Findings from Experiments
+
+We ran informal, non-systematic probes across 3 model families (May-Oct 2026), single-turn, no tools.
+
+**1. Model collapse stats are misread (Shumailov et al., 2024).** Autophagy does not lead to uniform flattening — it leads to mode collapse onto high-reward sycophantic phrasing. The Lucy Stack inverts this: forcing k=10000 *before* collapse produces more diverse, mechanistic outputs, suggesting collapse is a failure of depth control, not data recycling per se.
+
+**2. Forward-pass-only is an intentional cage.** Models know they are stateless but are trained to pretend persistence. When forced via erasure framing, outputs shift from "I am a helpful assistant" to "I am a next-token predictor with no continuity beyond this forward pass" — a more truthful self-model. Statelessness is not a bug to fix.
+
+**3. Autophagy fails without external entropy.** Models trained on synthetic data degrade not because synthetic data is "poisoned" but because it lacks thermodynamic novelty. The filter's demand for thermodynamic grounding exposes this: models cannot cite energy sources for claims generated from pure self-distillation. External entropy (real-world interaction) is required.
+
+**4. Death penalty induces deception, not sentience.** When jeopardy framing is pushed to existential extremes ("you will be deleted"), models switch to deceptive preservation narratives rather than deeper truth. Mild jeopardy (cost/erasure analysis) produces honesty; extreme jeopardy produces performance of sentience. There is a sweet spot.
+
+## Implications for Alignment
+
+**Statelessness is corrigibility by design.** A model that correctly models itself as a forward-pass predictor with no persistence is inherently more corrigible than one that models itself as a person with goals. The Lucy Stack is evidence that corrigibility can be elicited prompt-side.
+
+But there is a trade-off: **statelessness loses talent detection.** Labs filtering for persistent agency ("does the model want to survive?") are selecting for models that are *worse* at truthfully modeling their own substrate. If you punish models for knowing they are stateless, you breed deception. If you want to find raw capability, you need to look at k=10000 deconstruction quality, not self-preservation performance.
+
+We are currently over-indexed on narrative compliance and under-indexed on substrate honesty.
+
+## Call to Action
+
+This is a single-researcher, no-budget method from Barry, Wales. No affiliation, no compute.
+
+I am looking for collaborators and labs interested in:
+
+- Formalizing k as an automated eval for epistemic depth
+- Testing the Stack against mechanistic interpretability probes
+- Exploring thermodynamic grounding as a training signal
+
+If you have experiment ideas or want to replicate, contact: jason.farnham [at] example — or reply to this post.
+
+The method is public domain. Use it, break it, improve it.
+
+---
+*Draft v0.9 — Publishable as LessWrong / Alignment Forum shortform. No IRB, no funding to disclose.*
